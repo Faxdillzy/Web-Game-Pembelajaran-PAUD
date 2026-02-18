@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>Fun Animal Kingdom - Game Pembelajaran PAUD</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="img/hand-print.png">
+</head>
+<body>
+    <div class="app-container">
+        <!-- ========== AUDIO ELEMETS  ========== -->
+        <audio id="soundSapi" preload="auto">
+            <source src="audio/Suara Sapi.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundKambing" preload="auto">
+            <source src="audio/Suara Kambing.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundKatak" preload="auto">
+            <source src="audio/Suara Katak.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundGajah" preload="auto">
+            <source src="audio/Suara Gajah.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundJerapah" preload="auto">
+            <source src="audio/Suara Jerapah.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundSinga" preload="auto">
+            <source src="audio/Suara Singa.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundRubah" preload="auto">
+            <source src="audio/Suara Rubah.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundElang" preload="auto">
+            <source src="audio/Suara Elang.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundAyam" preload="auto">
+            <source src="audio/Suara Ayam.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundIkan" preload="auto">
+            <source src="audio/Suara Ikan.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundApplause" preload="auto">
+            <source src="audio/Tepuk Tangan _ Sound Effect.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="soundSad" preload="auto">
+            <source src="audio/Suara Sedih.mp3" type="audio/mpeg">
+        </audio>
+        
+        <!-- ========== HALAMAN 1: LOGIN  ========== -->
+        <div id="loginPage" class="login-page">
+            <div class="welcome-header">
+                <h1>🌈 Fun Animal Kingdom</h1>
+                <p>Kita Belajar Sambil Bermain Yuk!</p>
+            </div>
+
+            <div class="animal-corousel">
+                <div class="animal-icon" onclick="playSound('sapi')">
+                    <img src="img/cow.png" alt="Sapi" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+                </div>
+            <div class="animal-icon" onclick="playSound('kambing')">
+                <img src="img/goat.png" alt="Kambing" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+            </div>
+            <div class="animal-icon" onclick="playSound('katak')">
+                <img src="img/frog.png" alt="Katak" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+            </div>
+            <div class="animal-icon" onclick="playSound('gajah')">
+                <img src="img/elephant.png" alt="Gajah" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+            </div>
+            <div class="animal-icon" onclick="playSound('jerapah')">
+                <img src="img/giraffe.png" alt="Jerapah" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+            </div>
+            <div class="animal-icon" onclick="playSound('singa')">
+                <img src="img/lion.png" alt="Singa" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+            </div>
+            <div class="animal-icon" onclick="playSound('rubah')">
+                <img src="img/fox.png" alt="Rubah" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+            </div>
+            <div class="animal-icon" onclick="playSound('elang')">
+                <img src="img/eagle.png" alt="Elang" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+            </div>
+            <div class="animal-icon" onclick="playSound('ayam')">
+                <img src="img/chicken.png" alt="Ayam" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+            </div>
+            <div class="animal-icon" onclick="playSound('ikan')">
+                <img src="img/clown-fish.png" alt="Ikan" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+            </div>
+        </div>
+
+            <div class="login-form">
+                <button class="btn-start" onclick="startGame()">Mulai Bermain</button>
+            </div>
+
+            <div class="credit">
+                <p>Dibuat oleh: <strong>Fadillah Aryaseto</strong> - Mahasiswa Jurusan Teknik Informatika Semester 4</p>
+                <p>❤️ Dibuat Untuk Pembelajaran Anak Usia Dini ❤️</p>
+            </div>
+        </div>
+
+        <!-- ========== HALAMAN 2-7: GAME ========== -->
+        <div id="gamePage" class="game-page">
+            <!-- Header Game -->
+            <div class="game-header">
+                <div class="player-info" id="displayName">Haaii, Adeekk!</div>
+                <div class="score-container">
+                    <div class="score-box">⭐ <span id="scoreDisplay">0</span></div>
+                    <div class="stars-container" id="starsContainer">
+                        <span class="star" onclick="addStar(1)">⭐</span>
+                        <span class="star" onclick="addStar(2)">⭐</span>
+                        <span class="star" onclick="addStar(3)">⭐</span>
+                        <span class="star" onclick="addStar(4)">⭐</span>
+                        <span class="star" onclick="addStar(5)">⭐</span>
+                    </div>
+                    <button class="logout-btn" onclick="logout()">Keluar Game</button>
+                </div>
+            </div>
+
+            <!-- Navigasi Level -->
+            <div class="level-nav">
+                <button class="level-btn active" onclick="changeLevel(1)">1️⃣ Sapi</button>
+                <button class="level-btn" onclick="changeLevel(2)">2️⃣ Katak</button>
+                <button class="level-btn" onclick="changeLevel(3)">3️⃣ Gajah</button>
+                <button class="level-btn" onclick="changeLevel(4)">4️⃣ Kambing</button>
+                <button class="level-btn" onclick="changeLevel(5)">5️⃣ Jerapah</button>
+                <button class="level-btn" onclick="changeLevel(6)">6️⃣ Singa</button>
+                <button class="level-btn" onclick="changeLevel(7)">7️⃣ Rubah</button>
+                <button class="level-btn" onclick="changeLevel(8)">8️⃣ Habitat Alam</button>
+                <button class="level-btn" onclick="changeLevel(9)">9️⃣ Habitat Air</button>
+            </div>
+
+            <!-- Game Area -->
+            <div id="gameArea" class="game-area">
+                <!-- Konten soal akan dimuat di sini melalui JavaScript -->
+            </div>
+
+            <!-- Tombol untuk melanjutkan ke halaman berikutnya -->
+            <div id="feedbackArea" class="feedback-area"></div>
+
+            <!-- Lencana Section -->
+            <div class="badges-section">
+                <div class="badges-title">
+                    <span>🏅</span> Lencanaku
+                </div>
+                <div id="badgesContainer" class="badges-container">
+            </div>
+        </div>
+
+        <!-- Reward Popup -->
+        <div id="rewardPopup" class="reward-popup hidden">
+            <div class="reward-stars">🎉 ⭐ 🎉</div>
+            <div class="reward-text">Selamat! Kamu telah menyelesaikan game ini!</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
